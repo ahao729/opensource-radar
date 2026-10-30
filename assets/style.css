@@ -49,8 +49,8 @@
     --bad-bg: #2c1513;
     --unk: #c4b5fd;
     --unk-bg: #221a3a;
-    --shadow: 0 1px 2px rgba(0,0,0,.4);
-    --shadow-lg: 0 20px 40px -20px rgba(0,0,0,.7);
+    --shadow: 0 1px 2px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.55);
+    --shadow-lg: 0 2px 6px rgba(0,0,0,.55), 0 20px 40px -20px rgba(0,0,0,.75);
   }
 }
 
@@ -229,6 +229,22 @@ body::before {
 .dots { letter-spacing: 2px; color: var(--accent); font-size: 11px; }
 
 /* ── 使用说明条 ───────────────────────── */
+/* ── 结果计数 / 面包屑 / 回到顶部 ─────── */
+.result-count { margin: 10px 0 0; font-size: 12.5px; color: var(--muted); }
+.crumb .sep { margin: 0 8px; color: var(--line-2); }
+.crumb .cur { color: var(--ink-2); }
+
+.to-top {
+  position: fixed; right: 18px; bottom: 22px; z-index: 40;
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--line-2); background: var(--card); color: var(--ink-2);
+  font-size: 16px; cursor: pointer; box-shadow: var(--shadow-lg);
+  opacity: 0; transform: translateY(8px); pointer-events: none;
+  transition: opacity .2s, transform .2s;
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { color: var(--ink); }
+
 /* ── 复制按钮 ───────────────────────── */
 .code-wrap { position: relative; margin-top: 4px; }
 .step .code-wrap code {

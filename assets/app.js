@@ -92,6 +92,11 @@
     return true;
   }
 
+  var countEl = document.getElementById("count");
+  var moreBtn = document.getElementById("more-btn");
+  var LIMIT = 24;
+  var expanded = false;
+
   function render() {
     var shown = 0;
     cards.forEach(function (c) {
@@ -100,6 +105,27 @@
       if (ok) shown++;
     });
     if (empty) empty.hidden = shown !== 0;
+    if (countEl) countEl.textContent = shown ? "共 " + shown + " 个结果" : "";
+
+    // 分页：超出 LIMIT 的先藏起来，点「显示更多」再放出来
+    if (moreBtn) {
+      var visibleIdx = 0;
+      cards.forEach(function (c) {
+        if (c.hidden) return;
+        if (!expanded && visibleIdx >= LIMIT) c.hidden = true;
+        visibleIdx++;
+      });
+      var left = Math.max(0, visibleIdx - (expanded ? visibleIdx : LIMIT));
+      moreBtn.hidden = expanded || visibleIdx <= LIMIT;
+      moreBtn.textContent = "显示更多（还有 " + left + " 个）";
+    }
+  }
+
+  if (moreBtn) {
+    moreBtn.addEventListener("click", function () {
+      expanded = true;
+      render();
+    });
   }
 
   input.addEventListener("input", function () {
@@ -119,4 +145,18 @@
 
 
   render();
+
+  // ── 回到顶部 ────────────────────────────────
+  var toTop = document.createElement("button");
+  toTop.className = "to-top";
+  toTop.type = "button";
+  toTop.setAttribute("aria-label", "回到顶部");
+  toTop.textContent = "↑";
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  document.body.appendChild(toTop);
+  window.addEventListener("scroll", function () {
+    toTop.classList.toggle("show", window.scrollY > 700);
+  }, { passive: true });
 })();
