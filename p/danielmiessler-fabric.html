@@ -34,31 +34,27 @@
     <div class="tile"><h4>适合谁</h4><p>自媒体</p></div>
     <div class="tile"><h4>你需要准备</h4><p>装好命令行工具 + 一个 AI 接口</p></div>
     <div class="tile negative"><h4>不适合谁</h4><p>不习惯命令行的人</p></div>
-    <div class="tile"><h4>我验证过吗</h4><p>还没亲手试过</p></div>
+    <div class="tile"><h4>我验证过吗</h4><p>部分验证 · 2026-10-30 · macOS arm64 · 官方二进制 v1.4.557（27 MB）· 265 个 pattern</p><p class="src">证据：<a href="https://github.com/danielmiessler/Fabric" target="_blank" rel="noopener">官网</a> · <a href="https://github.com/danielmiessler/fabric/releases" target="_blank" rel="noopener">下载页</a> · <a href="https://github.com/danielmiessler/fabric/tree/main/data/patterns" target="_blank" rel="noopener">pattern 目录</a></p></div>
     
   </div>
 
-  <h2 class="sec">怎么用</h2>
-<div class="note-empty">
-  <b>这个我还没亲手跑通。</b>
-  <p>跑通之后会把真实命令、耗时、卡住的地方写在这里。在那之前，不给猜测的步骤——猜错一次，你损失的是一晚上。</p>
-</div>
+  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><p>下载官方 arm64 二进制：fabric_Darwin_arm64.tar.gz（27 MB），解压即用，无需 Docker</p></div><div class="step"><span class="num">2</span><p>首次运行会找 ~/.config/fabric，没有就自己建目录放 .env</p></div><div class="step"><span class="num">3</span><p>内置不含 pattern，需要另外准备 265 个 pattern 文件（官方仓库 data/patterns 目录）</p></div><div class="step"><span class="num">4</span><b>试跑</b><p>echo &quot;文本&quot; | fabric -p summarize --dry-run —— 只组装提示词，不发请求</p></div></div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>完整安装手册 <span class="tag paid">会员</span></h3>
-  <div class="gate-body"><p>跑通之后才有。现在这里没有内容，我也不会拿占位糊弄。</p></div>
+  <div class="gate-body"><ul class="manual-list"><li>开机自启：重启之后不用手动再敲一遍</li><li>数据放哪：模型 / 配置 / 缓存在哪个目录，怎么挪</li><li>给同一局域网里的其他设备用（手机、另一台电脑）</li><li>升级与回滚：换版本不把配置搞坏</li><li>跑不动的时候按什么顺序排查（内存、显存、端口）</li></ul></div>
   <div class="gate-lock">🔒 会员可见</div>
 </div>
 
 <div class="gate" data-tier="follower" data-open="0">
   <h3>我踩过的坑 <span class="tag paid">关注看 1 条 · 会员看全部</span></h3>
-  <div class="gate-body"><p>还没亲手跑通，暂时没有踩坑记录。</p></div>
+  <div class="gate-body"><p>发行包里没有 pattern：拿到二进制后必须先有 patterns，否则 --listpatterns 提示 No patterns found，什么都跑不了</p></div>
   <div class="gate-lock">🔒 关注公众号解锁</div>
 </div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>剩下的坑和调优 <span class="tag paid">会员</span></h3>
-  <div class="gate-body"><p>坑还没攒够，跑通之后补。</p></div>
+  <div class="gate-body"><p>默认配置目录在 ~/.config/fabric，不是 macOS 常见的 Application Support；找不到会在报错里告诉你路径 · 没有 API Key 时能「装好」但不能「用起来」：--dry-run 能看到完整提示词，真跑会卡在鉴权 · pattern 数量多（265 个），第一次挑花眼；summarize / extract_wisdom 是最常用的两个</p></div>
   <div class="gate-lock">🔒 会员可见</div>
 </div>
 
