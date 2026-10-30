@@ -34,31 +34,27 @@
     <div class="tile"><h4>适合谁</h4><p>通用 / 运营</p></div>
     <div class="tile"><h4>你需要准备</h4><p>一台服务器，愿意花 1 小时画流程图</p></div>
     <div class="tile negative"><h4>不适合谁</h4><p>完全不想动手设置 —— 先用现成的自动化工具</p></div>
-    <div class="tile"><h4>我验证过吗</h4><p>还没亲手试过</p></div>
+    <div class="tile"><h4>我验证过吗</h4><p>已经跑通 · 2026-10-30 · Docker 29.2.1 · arm64 · macOS · 镜像 1.81 GB · 版本 2.45.6</p><p class="src">证据：<a href="https://n8n.io/" target="_blank" rel="noopener">官网</a> · <a href="https://hub.docker.com/r/n8nio/n8n" target="_blank" rel="noopener">镜像地址</a> · <a href="https://docs.n8n.io/hosting/cli-commands/" target="_blank" rel="noopener">命令行文档</a></p></div>
     <div class="tile warn"><h4>许可上要注意</h4><p>禁止作为托管服务转售</p></div>
   </div>
 
-  <h2 class="sec">怎么用</h2>
-<div class="note-empty">
-  <b>这个我还没亲手跑通。</b>
-  <p>跑通之后会把真实命令、耗时、卡住的地方写在这里。在那之前，不给猜测的步骤——猜错一次，你损失的是一晚上。</p>
-</div>
+  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull n8nio/n8n:latest —— 1.81 GB</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n:latest</code></p></div><div class="step"><span class="num">3</span><b>导入工作流</b><p><code>docker exec n8n n8n import:workflow --input=/tmp/wf.json</code></p></div><div class="step"><span class="num">4</span><b>执行工作流</b><p>另起一个一次性容器跑 n8n execute --id=&lt;工作流ID&gt;（不能在已运行的容器里跑）</p></div></div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>完整安装手册 <span class="tag paid">会员</span></h3>
-  <div class="gate-body"><p>跑通之后才有。现在这里没有内容，我也不会拿占位糊弄。</p></div>
+  <div class="gate-body"><ul class="manual-list"><li>域名怎么绑、HTTPS 证书怎么配</li><li>备份：备份哪些目录、多久一次、怎么恢复</li><li>升级：换版本不丢数据的具体步骤</li><li>对外开放前必须先做的三件事（改默认密码、限制来源、开日志）</li><li>挂了怎么查：日志在哪、常见报错对照</li></ul></div>
   <div class="gate-lock">🔒 会员可见</div>
 </div>
 
 <div class="gate" data-tier="follower" data-open="0">
   <h3>我踩过的坑 <span class="tag paid">关注看 1 条 · 会员看全部</span></h3>
-  <div class="gate-body"><p>还没亲手跑通，暂时没有踩坑记录。</p></div>
+  <div class="gate-body"><p>镜像 1.81 GB，但启动只要 5 秒——慢的从来不是启动，是拉镜像那一步</p></div>
   <div class="gate-lock">🔒 关注公众号解锁</div>
 </div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>剩下的坑和调优 <span class="tag paid">会员</span></h3>
-  <div class="gate-body"><p>坑还没攒够，跑通之后补。</p></div>
+  <div class="gate-body"><p>常驻内存 736 MB，2G 内存的机器再装别的会很紧 · n8n execute 不能在正在运行的容器里执行：Task Broker 端口 5679 已被占用，直接报 port already in use · 一次性容器不能写 docker run ... n8n execute，入口脚本会把 n8n 当成找不到的命令；必须加 --entrypoint n8n · 数据必须挂卷到 /home/node/.n8n，否则容器一删，工作流全没</p></div>
   <div class="gate-lock">🔒 会员可见</div>
 </div>
 

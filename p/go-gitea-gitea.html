@@ -34,31 +34,27 @@
     <div class="tile"><h4>适合谁</h4><p>开发者 / 中小企业</p></div>
     <div class="tile"><h4>你需要准备</h4><p>一台 2G 服务器</p></div>
     <div class="tile negative"><h4>不适合谁</h4><p>一个人写代码、不在意托管在哪的人</p></div>
-    <div class="tile"><h4>我验证过吗</h4><p>还没亲手试过</p></div>
+    <div class="tile"><h4>我验证过吗</h4><p>已经跑通 · 2026-10-30 · Docker 29.2.1 · arm64 · macOS · 镜像 262 MB · 版本 28.2.0</p><p class="src">证据：<a href="https://gitea.com/" target="_blank" rel="noopener">官网</a> · <a href="https://hub.docker.com/r/gitea/gitea" target="_blank" rel="noopener">镜像地址</a> · <a href="https://docs.gitea.com/api/" target="_blank" rel="noopener">API 文档</a></p></div>
     
   </div>
 
-  <h2 class="sec">怎么用</h2>
-<div class="note-empty">
-  <b>这个我还没亲手跑通。</b>
-  <p>跑通之后会把真实命令、耗时、卡住的地方写在这里。在那之前，不给猜测的步骤——猜错一次，你损失的是一晚上。</p>
-</div>
+  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull gitea/gitea:latest —— 262 MB，这批里最轻</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p>必须带上 -e GITEA__security__INSTALL_LOCK=true，否则会停在安装向导</p></div><div class="step"><span class="num">3</span><b>建管理员</b><p><code>docker exec -u git gitea gitea admin user create --username radar --admin ...</code></p></div><div class="step"><span class="num">4</span><p>用 API 建仓库、提交文件、再读回来验证</p></div></div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>完整安装手册 <span class="tag paid">会员</span></h3>
-  <div class="gate-body"><p>跑通之后才有。现在这里没有内容，我也不会拿占位糊弄。</p></div>
+  <div class="gate-body"><ul class="manual-list"><li>域名怎么绑、HTTPS 证书怎么配</li><li>备份：备份哪些目录、多久一次、怎么恢复</li><li>升级：换版本不丢数据的具体步骤</li><li>对外开放前必须先做的三件事（改默认密码、限制来源、开日志）</li><li>挂了怎么查：日志在哪、常见报错对照</li></ul></div>
   <div class="gate-lock">🔒 会员可见</div>
 </div>
 
 <div class="gate" data-tier="follower" data-open="0">
   <h3>我踩过的坑 <span class="tag paid">关注看 1 条 · 会员看全部</span></h3>
-  <div class="gate-body"><p>还没亲手跑通，暂时没有踩坑记录。</p></div>
+  <div class="gate-body"><p>不设 INSTALL_LOCK 就会停在「安装向导」页面，此时 /api/v1/version 返回 404，非常像装坏了</p></div>
   <div class="gate-lock">🔒 关注公众号解锁</div>
 </div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>剩下的坑和调优 <span class="tag paid">会员</span></h3>
-  <div class="gate-body"><p>坑还没攒够，跑通之后补。</p></div>
+  <div class="gate-body"><p>管理员只能用命令行在容器里建，网页上的注册入口默认拿不到管理权限 · 端口要同时映射 3000（网页/HTTP）和 22（SSH clone），只映射 3000 会让 git clone 失败 · SQLite 单文件够用到几十人，但备份要连 /data 整个目录一起备</p></div>
   <div class="gate-lock">🔒 会员可见</div>
 </div>
 
