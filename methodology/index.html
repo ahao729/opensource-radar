@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>方法与口径 · 开源雷达</title>
+<meta name="description" content="我们的收录标准、许可判定方法、实测标准、数据来源与已知局限。">
+<meta property="og:title" content="方法与口径 · 开源雷达">
+<meta property="og:description" content="我们的收录标准、许可判定方法、实测标准、数据来源与已知局限。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%234338ca'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-tier="guest">
+<header class="top">
+  <a class="brand" href="../index.html"><span class="dot"></span>开源雷达</a>
+  
+</header>
+
+<main class="wrap">
+  <a class="crumb" href="../index.html">← 返回目录</a>
+
+  <section class="hero">
+    <p class="eyebrow">方法与口径</p>
+    <h1 class="display">我们怎么得出<em>这些结论</em></h1>
+    <p class="lede">这一页写清楚：项目怎么选、许可怎么判、"我实测过"是什么意思、这份数据有多可信。
+      你看完可以自己复核——如果发现我们说错了，那是我们的问题。</p>
+  </section>
+
+  <h2 class="sec">一、项目怎么选的</h2>
+  <div class="prose">
+    <p>收录的唯一标准是：<b>一个不写代码的人，有可能用得上它。</b></p>
+    <p>所以纯开发者工具（框架、SDK、编译器）基本不收，或者收进来标成 C 级"只教学"。
+      我们宁可目录里少几十个项目，也不想让你翻到一半发现全是给程序员看的。</p>
+    <p><b>一票否决的类目</b>（永远不收录）：爬虫破解、去水印、破解会员、刷量养号、群控、换脸、
+      声音克隆、绕过风控、抓取他人平台数据。这些不只是平台违规，有些直接触犯法律。</p>
+  </div>
+
+  <h2 class="sec">二、许可怎么判的</h2>
+  <div class="prose">
+    <p>我们只分四档，而且<b>宁可说"不知道"，也不猜</b>：</p>
+    <ul>
+      <li><b>✅ 可商用</b>：MIT / Apache-2.0 / BSD 这类，可以随产品分发，保留版权声明即可</li>
+      <li><b>⚠️ 有条件</b>：GPL、AGPL、BSL，或者"改版 Apache""分模块授权"这类自有协议——能用，但要看条款</li>
+      <li><b>❌ 不可商用</b>：明确禁止转售或对外提供服务的</li>
+      <li><b>❓ 待裁定</b>：GitHub 上没有可识别的许可证，<b>必须人工读 LICENSE 全文</b>。读不懂之前，按"不能用"处理</li>
+    </ul>
+    <div class="chart"><div class="bar-row"><span class="bar-label">可商用</span><span class="bar-track"><i style="width:49.0%;background:var(--ok)"></i></span><span class="bar-num">25</span></div><div class="bar-row"><span class="bar-label">有条件</span><span class="bar-track"><i style="width:29.4%;background:var(--warn)"></i></span><span class="bar-num">15</span></div><div class="bar-row"><span class="bar-label">不可商用</span><span class="bar-track"><i style="width:19.6%;background:var(--bad)"></i></span><span class="bar-num">10</span></div><div class="bar-row"><span class="bar-label">待裁定</span><span class="bar-track"><i style="width:2.0%;background:var(--unk)"></i></span><span class="bar-num">1</span></div></div>
+    <p class="muted">当前收录 51 个项目，分布如上。注意"有待裁定"这一档是真实存在的——
+      很多热门仓库的许可证 GitHub 识别不出来，这不代表它没限制，只代表<b>没人替你看过</b>。</p>
+  </div>
+
+  <h2 class="sec">三、许可之外，还有风险</h2>
+  <div class="prose">
+    <p>许可是法律问题，风险是"会不会伤到你"。两件事经常被混为一谈，我们分开标：</p>
+    <ul>
+      <li><b>封号风险</b>：用了可能被封账号（比如自动化操作微信、批量操作网页）</li>
+      <li><b>合规风险</b>：涉及个人信息、医疗、金融等受监管数据</li>
+      <li><b>版权风险</b>：AI 生成内容的权属不清晰，商用要掂量</li>
+      <li><b>停更风险</b>：超过半年没提交。还能跑，但出问题没人修——这条是系统按最近提交自动算的</li>
+    </ul>
+    <p><a href="../by/risk/" style="text-decoration:underline">按风险看全部项目</a></p>
+  </div>
+
+  <h2 class="sec">四、"我实测过"是什么意思</h2>
+  <div class="prose">
+    <p>当前 51 个项目里，<b>只有 3 个</b>标了"已经跑通"。这个数字不漂亮，但它是真的。</p>
+    <p>标"跑通"必须同时满足四条：</p>
+    <ol>
+      <li><b>真装过</b>：不是读文档，是真的把镜像拉下来、跑起来</li>
+      <li><b>有日期和环境</b>：比如"2026-10-30 / Docker 29.2.1 / arm64 / macOS / 版本 3.2.2"</li>
+      <li><b>做了功能验证</b>：不是"页面能打开"，是"合并 2 个 PDF → 17,738 字节 / 2 页"这种能被核对的结果</li>
+      <li><b>有证据链接</b>：官方文档、镜像地址、许可证原文</li>
+    </ol>
+    <p>没跑通的，页面上就写"这个我还没亲手跑通"，<b>不给猜的步骤</b>。
+      猜错一次，你损失的是一晚上。</p>
+  </div>
+
+  <h2 class="sec">五、数据从哪来</h2>
+  <div class="prose">
+    <ul>
+      <li><b>项目元信息</b>：GitHub REST API（星数、许可、最近提交、语言）</li>
+      <li><b>文案与判断</b>：我们自己写的。一句话简介、你需要准备什么、不适合谁，都不是抄 README</li>
+      <li><b>更新方式</b>：每次构建重新拉取技术字段；人工写的文案不会被覆盖</li>
+    </ul>
+  </div>
+
+  <h2 class="sec">六、已知的局限</h2>
+  <div class="prose">
+    <ul>
+      <li><b>星数是注意力，不是质量。</b>它可能被营销、短期热点甚至刷量影响</li>
+      <li><b>许可证会变。</b>今天 MIT，明天可能改成 BSL。重要用途请以仓库当下的 LICENSE 为准</li>
+      <li><b>实测环境有限。</b>我们主要在 Docker + macOS 上验证，Windows、群晖、各类云服务器上的表现可能不同</li>
+      <li><b>我们不是律师。</b>许可判定是工程判断，不是法律意见。要拿去商用，请自己再核一遍或咨询律师</li>
+      <li><b>覆盖率低。</b>51 个项目里只跑通了 3 个，剩下的"没跑通"就是没跑通</li>
+    </ul>
+  </div>
+
+  <h2 class="sec">七、我们不做的事</h2>
+  <div class="prose">
+    <ul>
+      <li><b>不卖源码。</b>只做介绍、评测、教程和服务。交付物里不会出现任何项目的代码包</li>
+      <li><b>不做托管服务。</b>不把别人的开源项目包装成 SaaS 卖给你——AGPL 那类协议这么干是侵权的</li>
+      <li><b>不接"教你怎么破解"的活。</b>再赚钱也不接</li>
+      <li><b>不刷榜、不买量。</b>这个站的存在意义就是"说的和做的一样"</li>
+    </ul>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn primary" href="../index.html">回目录看看</a>
+    <a class="btn ghost" href="../start/">让选型向导帮我挑</a>
+  </div>
+</main>
+
+<footer class="foot">
+  <p>开源雷达 · 帮你判断一个开源东西能不能用、要不要钱、装起来有多难。</p>
+  <p class="muted">
+    <a href="../methodology/">数据口径</a> ·
+    
+  </p>
+</footer>
+<script src="../assets/app.js"></script>
+</body></html>

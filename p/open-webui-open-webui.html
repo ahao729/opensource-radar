@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open WebUI · 开源雷达</title>
+<meta name="description" content="把 ChatGPT 搬进自己公司：员工共用一个 AI 助手，聊天记录不出门">
+<meta property="og:title" content="Open WebUI · 开源雷达">
+<meta property="og:description" content="把 ChatGPT 搬进自己公司：员工共用一个 AI 助手，聊天记录不出门">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%234338ca'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-tier="guest">
+<header class="top">
+  <a class="brand" href="../index.html"><span class="dot"></span>开源雷达</a>
+  
+</header>
+
+<main class="wrap">
+  <a class="crumb" href="../index.html">← 返回目录</a>
+
+  <section class="dhero">
+    <p class="kicker">项目 · <a href="../scenario/ai/">AI 基建</a></p>
+    <h1 class="dtitle">Open WebUI</h1>
+    <a class="repo" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui/open-webui</a>
+    <p class="meta">★ 157,168 · 最近更新 2026-10-29 · 自托管</p>
+    <div class="badges" style="margin-top:14px"><span class="badge limited">⚠️ 要注意</span><span class="badge ghost">自研 Open WebUI License</span><span class="badge ghost">国内可用</span><span class="badge lvl">A · 主推</span></div>
+    
+    <p class="oneline">把 ChatGPT 搬进自己公司：员工共用一个 AI 助手，聊天记录不出门</p>
+  </section>
+
+  <div class="board">
+    <div class="tile"><h4>适合谁</h4><p>通用 / 中小企业</p></div>
+    <div class="tile"><h4>你需要准备</h4><p>一台 2 核 4G 的云服务器，约 ¥60/月，30 分钟</p></div>
+    <div class="tile negative"><h4>不适合谁</h4><p>只是偶尔用一次 —— 直接用免费版更快</p></div>
+    <div class="tile"><h4>我验证过吗</h4><p>已经跑通 · 2026-10-30 · Docker 29.2.1 · arm64 · macOS · 镜像 5.82 GB · 版本 0.12.5</p><p class="src">证据：<a href="https://docs.openwebui.com/" target="_blank" rel="noopener">官方文档</a> · <a href="https://github.com/open-webui/open-webui/pkgs/container/open-webui" target="_blank" rel="noopener">镜像地址</a> · <a href="https://github.com/open-webui/open-webui/blob/main/LICENSE" target="_blank" rel="noopener">许可证原文</a></p></div>
+    <div class="tile warn"><h4>许可上要注意</h4><p>50 人以内可用、不得改品牌</p></div>
+  </div>
+
+  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull ghcr.io/open-webui/open-webui:main —— 5.82 GB，比想象的大得多</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name owui -p 18081:8080 ghcr.io/open-webui/open-webui:main</code></p></div><div class="step"><span class="num">3</span><p>等约 90 秒，打开 http://localhost:18081 ，第一个注册的账号自动成为管理员</p></div><div class="step"><span class="num">4</span><p>接一个模型（Ollama 或任意 OpenAI 兼容接口），否则发不出对话</p></div></div>
+
+<div class="gate" data-tier="member" data-open="0">
+  <h3>完整安装手册 <span class="tag paid">会员</span></h3>
+  <div class="gate-body"><ul class="manual-list"><li>域名怎么绑、HTTPS 证书怎么配</li><li>备份：备份哪些目录、多久一次、怎么恢复</li><li>升级：换版本不丢数据的具体步骤</li><li>对外开放前必须先做的三件事（改默认密码、限制来源、开日志）</li><li>挂了怎么查：日志在哪、常见报错对照</li></ul></div>
+  <div class="gate-lock">🔒 会员可见</div>
+</div>
+
+<div class="gate" data-tier="follower" data-open="0">
+  <h3>我踩过的坑 <span class="tag paid">关注看 1 条 · 会员看全部</span></h3>
+  <div class="gate-body"><p>镜像 5.82 GB，比 Stirling PDF 还大一倍，小磁盘机器直接放弃</p></div>
+  <div class="gate-lock">🔒 关注公众号解锁</div>
+</div>
+
+<div class="gate" data-tier="member" data-open="0">
+  <h3>剩下的坑和调优 <span class="tag paid">会员</span></h3>
+  <div class="gate-body"><p>首次启动要 88 秒才健康，这期间 docker ps 一直显示 starting · 装完不等于能用：模型列表是空的，必须先接 Ollama 或 OpenAI 兼容接口，否则一句话都发不出去 · 只有第一个注册的账号能成功（自动成为管理员），之后注册自动关闭——第二个人注册返回 403 · 没配模型时 /api/models 要 10.9 秒才返回空数组，因为它去探测未配置的上游接口然后超时，表现为页面卡住</p></div>
+  <div class="gate-lock">🔒 会员可见</div>
+</div>
+
+<h2 class="sec">同类项目</h2><ul class="similar"><li><a href="../p/ollama-ollama.html">Ollama</a><span class="badge ok">✅ 可商用</span><span class="dots">●●●○○</span></li><li><a href="../p/langgenius-dify.html">Dify</a><span class="badge limited">⚠️ 要注意</span><span class="dots">●●●○○</span></li><li><a href="../p/langchain-ai-langchain.html">LangChain</a><span class="badge ok">✅ 可商用</span><span class="dots">●●●●●</span></li></ul>
+
+<div class="gate" data-tier="follower" data-open="0">
+  <h3>要花多少钱 <span class="tag paid">关注可见</span></h3>
+  <div class="gate-body"><p>服务器 ¥60/月 + 域名 ¥60/年 + 接口按量约 ¥0.02/次。</p></div>
+  <div class="gate-lock">🔒 关注解锁</div>
+</div>
+
+
+  <h2 class="sec">它出现在这些方案里</h2><ul class="similar stack"><li><a href="../playbook/small-company-ai/">小公司的 AI 三件套</a><span class="role">方案</span></li></ul>
+
+  <h2 class="sec">常被拿来和它比</h2><ul class="similar stack"><li><a href="../vs/open-webui-vs-ragflow/">Open WebUI vs RAGFlow</a><span class="role">对比</span></li><li><a href="../vs/open-webui-vs-langchain/">Open WebUI vs LangChain</a><span class="role">对比</span></li></ul>
+
+  <div class="cta-row">
+    <a class="btn primary" href="../index.html#unlock">关注解锁完整内容</a>
+    <span class="btn ghost">¥199 陪你装好</span>
+    <span class="btn ghost">¥800 起 我帮你装</span>
+  </div>
+</main>
+
+<footer class="foot">
+  <p>开源雷达 · 帮你判断一个开源东西能不能用、要不要钱、装起来有多难。</p>
+  <p class="muted">
+    <a href="../methodology/">数据口径</a> ·
+    
+  </p>
+</footer>
+<script src="../assets/app.js"></script>
+</body></html>

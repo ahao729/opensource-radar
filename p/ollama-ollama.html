@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ollama · 开源雷达</title>
+<meta name="description" content="在自己电脑上跑大模型，断网也能用，不用调任何接口">
+<meta property="og:title" content="Ollama · 开源雷达">
+<meta property="og:description" content="在自己电脑上跑大模型，断网也能用，不用调任何接口">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%234338ca'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-tier="guest">
+<header class="top">
+  <a class="brand" href="../index.html"><span class="dot"></span>开源雷达</a>
+  
+</header>
+
+<main class="wrap">
+  <a class="crumb" href="../index.html">← 返回目录</a>
+
+  <section class="dhero">
+    <p class="kicker">项目 · <a href="../scenario/ai/">AI 基建</a></p>
+    <h1 class="dtitle">Ollama</h1>
+    <a class="repo" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a>
+    <p class="meta">★ 185,246 · 最近更新 2026-10-29 · 本地运行</p>
+    <div class="badges" style="margin-top:14px"><span class="badge ok">✅ 可商用</span><span class="badge ghost">MIT</span><span class="badge ghost">国内可用</span><span class="badge lvl">A · 主推</span></div>
+    
+    <p class="oneline">在自己电脑上跑大模型，断网也能用，不用调任何接口</p>
+  </section>
+
+  <div class="board">
+    <div class="tile"><h4>适合谁</h4><p>开发者 / 通用</p></div>
+    <div class="tile"><h4>你需要准备</h4><p>一台 16G 内存以上的电脑，最好有独立显卡</p></div>
+    <div class="tile negative"><h4>不适合谁</h4><p>只有 8G 内存的轻薄本</p></div>
+    <div class="tile"><h4>我验证过吗</h4><p>已经跑通 · 2026-10-30 · Docker 29.2.1 · arm64 · macOS · 镜像 7.15 GB · 版本 0.40.13</p><p class="src">证据：<a href="https://ollama.com/" target="_blank" rel="noopener">官网</a> · <a href="https://hub.docker.com/r/ollama/ollama" target="_blank" rel="noopener">镜像地址</a> · <a href="https://github.com/ollama/ollama/blob/main/docs/openai.md" target="_blank" rel="noopener">OpenAI 兼容说明</a></p></div>
+    
+  </div>
+
+  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull ollama/ollama:latest —— 7.15 GB，比模型本身大得多</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name ollama -p 18100:11434 ollama/ollama:latest</code></p></div><div class="step"><span class="num">3</span><b>拉模型</b><p><code>docker exec ollama ollama pull qwen2.5:0.5b —— 0.40 GB，实测 15 秒</code></p></div><div class="step"><span class="num">4</span><b>调用</b><p>POST /v1/chat/completions（OpenAI 兼容），或 /api/generate（自有接口）</p></div></div>
+
+<div class="gate" data-tier="member" data-open="0">
+  <h3>完整安装手册 <span class="tag paid">会员</span></h3>
+  <div class="gate-body"><ul class="manual-list"><li>开机自启：重启之后不用手动再敲一遍</li><li>数据放哪：模型 / 配置 / 缓存在哪个目录，怎么挪</li><li>给同一局域网里的其他设备用（手机、另一台电脑）</li><li>升级与回滚：换版本不把配置搞坏</li><li>跑不动的时候按什么顺序排查（内存、显存、端口）</li></ul></div>
+  <div class="gate-lock">🔒 会员可见</div>
+</div>
+
+<div class="gate" data-tier="follower" data-open="0">
+  <h3>我踩过的坑 <span class="tag paid">关注看 1 条 · 会员看全部</span></h3>
+  <div class="gate-body"><p>镜像 7.15 GB，是模型（0.4 GB）的十几倍——很多人以为「模型小就轻」，卡在拉镜像这一步</p></div>
+  <div class="gate-lock">🔒 关注公众号解锁</div>
+</div>
+
+<div class="gate" data-tier="member" data-open="0">
+  <h3>剩下的坑和调优 <span class="tag paid">会员</span></h3>
+  <div class="gate-body"><p>docker run 完是空的：模型必须另外 pull，不 pull 只能看着接口报错 · 容器里只能 CPU 推理，Apple Silicon 用不上 Metal 加速（那是原生 app 才有的）；0.5B 小模型约 100 tokens/s，换成 7B 会慢到没法用 · 内存随模型增长：0.5B 实测占 683 MB，7B 至少要 5 GB 以上 · 首次对话要加载模型约 0.8 秒，之后才快；别把第一次的延迟当成性能</p></div>
+  <div class="gate-lock">🔒 会员可见</div>
+</div>
+
+<h2 class="sec">同类项目</h2><ul class="similar"><li><a href="../p/langgenius-dify.html">Dify</a><span class="badge limited">⚠️ 要注意</span><span class="dots">●●●○○</span></li><li><a href="../p/open-webui-open-webui.html">Open WebUI</a><span class="badge limited">⚠️ 要注意</span><span class="dots">●●○○○</span></li><li><a href="../p/langchain-ai-langchain.html">LangChain</a><span class="badge ok">✅ 可商用</span><span class="dots">●●●●●</span></li></ul>
+
+<div class="gate" data-tier="follower" data-open="0">
+  <h3>要花多少钱 <span class="tag paid">关注可见</span></h3>
+  <div class="gate-body"><p>服务器 ¥60/月 + 域名 ¥60/年 + 接口按量约 ¥0.02/次。</p></div>
+  <div class="gate-lock">🔒 关注解锁</div>
+</div>
+
+
+  
+
+  
+
+  <div class="cta-row">
+    <a class="btn primary" href="../index.html#unlock">关注解锁完整内容</a>
+    <span class="btn ghost">¥199 陪你装好</span>
+    <span class="btn ghost">¥800 起 我帮你装</span>
+  </div>
+</main>
+
+<footer class="foot">
+  <p>开源雷达 · 帮你判断一个开源东西能不能用、要不要钱、装起来有多难。</p>
+  <p class="muted">
+    <a href="../methodology/">数据口径</a> ·
+    
+  </p>
+</footer>
+<script src="../assets/app.js"></script>
+</body></html>
