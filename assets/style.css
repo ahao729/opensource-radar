@@ -229,6 +229,32 @@ body::before {
 .dots { letter-spacing: 2px; color: var(--accent); font-size: 11px; }
 
 /* ── 使用说明条 ───────────────────────── */
+/* ── 服务页 ─────────────────────────── */
+.sku-list { display: grid; gap: 14px; margin: 32px 0 0; }
+.sku {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 22px 24px; box-shadow: var(--shadow);
+  scroll-margin-top: 80px;
+}
+.sku-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.sku-code {
+  font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  padding: 2px 8px; border-radius: 6px; background: var(--accent-soft); color: var(--accent);
+}
+.sku-head h3 { margin: 0; font-size: 19px; letter-spacing: -.02em; }
+.sku-price {
+  margin-left: auto; font-size: 20px; font-weight: 700; letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+.sku-price i { font-size: 12px; font-weight: 400; color: var(--muted); font-style: normal; }
+.sku-who { margin: 8px 0 14px; color: var(--ink-2); font-size: 14.5px; }
+.sku-cols { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.sku-cols h4 { margin: 0 0 6px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.sku-cols ul { margin: 0; padding-left: 18px; }
+.sku-cols li { margin: 5px 0; font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+.sku-cols .neg li { color: var(--bad); }
+.sku-time { margin: 14px 0 0; font-size: 12px; color: var(--muted); }
+
 /* ── 结果计数 / 面包屑 / 回到顶部 ─────── */
 .result-count { margin: 10px 0 0; font-size: 12.5px; color: var(--muted); }
 .crumb .sep { margin: 0 8px; color: var(--line-2); }
@@ -593,7 +619,9 @@ h2.sec::before {
 .unlock-grid b { display: block; margin-bottom: 4px; font-size: 14px; }
 .unlock-grid p { margin: 0; color: var(--muted); font-size: 13px; }
 
-.empty { text-align: center; color: var(--muted); padding: 64px 0; }
+.empty { text-align: center; color: var(--muted); padding: 48px 0; line-height: 2; }
+.empty-tip { font-size: 13px; }
+.empty-tip a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
 .foot {
   border-top: 1px solid var(--line); padding: 32px 16px; text-align: center;
