@@ -38,7 +38,7 @@
     
   </div>
 
-  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull ollama/ollama:latest —— 7.15 GB，比模型本身大得多</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name ollama -p 18100:11434 ollama/ollama:latest</code></p></div><div class="step"><span class="num">3</span><b>拉模型</b><p><code>docker exec ollama ollama pull qwen2.5:0.5b —— 0.40 GB，实测 15 秒</code></p></div><div class="step"><span class="num">4</span><b>调用</b><p>POST /v1/chat/completions（OpenAI 兼容），或 /api/generate（自有接口）</p></div></div>
+  <h2 class="sec">我看到了什么</h2><ul class="evidence"><li>镜像 7.15 GB，但模型本体只有 0.40 GB——大头是运行环境</li><li>qwen2.5:0.5b 生成 68 tokens 用 0.68 秒，约 100 tokens/s（纯 CPU）</li><li>首次调用要先加载模型 0.8 秒，第二次才快</li><li>/v1/chat/completions 返回标准 OpenAI 结构，usage 里 prompt 36 / completion 28</li></ul><p class="demo-note">全部是实测时的真实输出，不是转述</p><h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull ollama/ollama:latest —— 7.15 GB，比模型本身大得多</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name ollama -p 18100:11434 ollama/ollama:latest</code></p></div><div class="step"><span class="num">3</span><b>拉模型</b><p><code>docker exec ollama ollama pull qwen2.5:0.5b —— 0.40 GB，实测 15 秒</code></p></div><div class="step"><span class="num">4</span><b>调用</b><p>POST /v1/chat/completions（OpenAI 兼容），或 /api/generate（自有接口）</p></div></div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>完整安装手册 <span class="tag paid">会员</span></h3>

@@ -38,7 +38,7 @@
     <div class="tile warn"><h4>许可上要注意</h4><p>50 人以内可用、不得改品牌</p></div>
   </div>
 
-  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull ghcr.io/open-webui/open-webui:main —— 5.82 GB，比想象的大得多</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name owui -p 18081:8080 ghcr.io/open-webui/open-webui:main</code></p></div><div class="step"><span class="num">3</span><p>等约 90 秒，打开 http://localhost:18081 ，第一个注册的账号自动成为管理员</p></div><div class="step"><span class="num">4</span><p>接一个模型（Ollama 或任意 OpenAI 兼容接口），否则发不出对话</p></div></div>
+  <h2 class="sec">我看到了什么</h2><ul class="evidence"><li>镜像 5.82 GB，是这批里第二大的</li><li>健康检查 88 秒才通过，这期间页面打不开</li><li>第一个注册的账号自动成为管理员；第二个账号注册直接返回 403</li><li>没接模型时 /api/models 要 10.9 秒才返回空数组——它在等一个不存在的上游超时</li></ul><p class="demo-note">全部是实测时的真实输出，不是转述</p><h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull ghcr.io/open-webui/open-webui:main —— 5.82 GB，比想象的大得多</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name owui -p 18081:8080 ghcr.io/open-webui/open-webui:main</code></p></div><div class="step"><span class="num">3</span><p>等约 90 秒，打开 http://localhost:18081 ，第一个注册的账号自动成为管理员</p></div><div class="step"><span class="num">4</span><p>接一个模型（Ollama 或任意 OpenAI 兼容接口），否则发不出对话</p></div></div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>完整安装手册 <span class="tag paid">会员</span></h3>

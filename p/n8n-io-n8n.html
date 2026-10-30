@@ -38,7 +38,7 @@
     <div class="tile warn"><h4>许可上要注意</h4><p>禁止作为托管服务转售</p></div>
   </div>
 
-  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull n8nio/n8n:latest —— 1.81 GB</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n:latest</code></p></div><div class="step"><span class="num">3</span><b>导入工作流</b><p><code>docker exec n8n n8n import:workflow --input=/tmp/wf.json</code></p></div><div class="step"><span class="num">4</span><b>执行工作流</b><p>另起一个一次性容器跑 n8n execute --id=&lt;工作流ID&gt;（不能在已运行的容器里跑）</p></div></div>
+  <h2 class="sec">我看到了什么</h2><ul class="evidence"><li>镜像 1.81 GB，但容器 5 秒就起来了——慢的只有下载</li><li>在已运行的容器里跑 n8n execute，报 Task Broker 端口 5679 被占用</li><li>换成一次性容器还不够，得加 --entrypoint n8n，否则提示找不到 n8n 命令</li><li>导入的 workflow 执行后 status: success，输出 msg = hello from radar</li></ul><p class="demo-note">全部是实测时的真实输出，不是转述</p><h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull n8nio/n8n:latest —— 1.81 GB</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n:latest</code></p></div><div class="step"><span class="num">3</span><b>导入工作流</b><p><code>docker exec n8n n8n import:workflow --input=/tmp/wf.json</code></p></div><div class="step"><span class="num">4</span><b>执行工作流</b><p>另起一个一次性容器跑 n8n execute --id=&lt;工作流ID&gt;（不能在已运行的容器里跑）</p></div></div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>完整安装手册 <span class="tag paid">会员</span></h3>

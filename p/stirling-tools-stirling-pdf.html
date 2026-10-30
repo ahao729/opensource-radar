@@ -38,7 +38,7 @@
     
   </div>
 
-  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull stirlingtools/stirling-pdf:latest —— 3.5 GB，国内先配镜像加速，否则会等很久</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name stirling -p 18080:8080 -e SECURITY_ENABLELOGIN=false stirlingtools/stirling-pdf:latest</code></p></div><div class="step"><span class="num">3</span><b>浏览器打开 http</b><p>//localhost:18080 ，把 PDF 拖进「合并」功能即可</p></div></div>
+  <h2 class="sec">我看到了什么</h2><ul class="evidence"><li>官方文档给人印象是几百兆，docker pull 实际下载 3.5 GB</li><li>按官方 API 示例传 files 字段：HTTP 200，但返回 0 字节的空文件</li><li>改成 fileInput 才正常：返回 17,738 字节、2 页</li><li>docker ps 显示 health: starting 的时候，服务其实早就能打开了</li></ul><p class="demo-note">全部是实测时的真实输出，不是转述</p><h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull stirlingtools/stirling-pdf:latest —— 3.5 GB，国内先配镜像加速，否则会等很久</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p><code>docker run -d --name stirling -p 18080:8080 -e SECURITY_ENABLELOGIN=false stirlingtools/stirling-pdf:latest</code></p></div><div class="step"><span class="num">3</span><b>浏览器打开 http</b><p>//localhost:18080 ，把 PDF 拖进「合并」功能即可</p></div></div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>完整安装手册 <span class="tag paid">会员</span></h3>

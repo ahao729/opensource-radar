@@ -38,7 +38,7 @@
     
   </div>
 
-  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull gitea/gitea:latest —— 262 MB，这批里最轻</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p>必须带上 -e GITEA__security__INSTALL_LOCK=true，否则会停在安装向导</p></div><div class="step"><span class="num">3</span><b>建管理员</b><p><code>docker exec -u git gitea gitea admin user create --username radar --admin ...</code></p></div><div class="step"><span class="num">4</span><p>用 API 建仓库、提交文件、再读回来验证</p></div></div>
+  <h2 class="sec">我看到了什么</h2><ul class="evidence"><li>不设 INSTALL_LOCK 时容器停在安装向导，/api/v1/version 返回 404</li><li>设了之后同一个接口立刻返回版本号 28.2.0</li><li>管理员只能在容器里用命令行建，网页注册拿不到管理权限</li><li>API 建仓库返回 201，提交文件返回 201，读回来的内容与写入一致</li></ul><p class="demo-note">全部是实测时的真实输出，不是转述</p><h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><b>拉镜像</b><p><code>docker pull gitea/gitea:latest —— 262 MB，这批里最轻</code></p></div><div class="step"><span class="num">2</span><b>启动</b><p>必须带上 -e GITEA__security__INSTALL_LOCK=true，否则会停在安装向导</p></div><div class="step"><span class="num">3</span><b>建管理员</b><p><code>docker exec -u git gitea gitea admin user create --username radar --admin ...</code></p></div><div class="step"><span class="num">4</span><p>用 API 建仓库、提交文件、再读回来验证</p></div></div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>完整安装手册 <span class="tag paid">会员</span></h3>

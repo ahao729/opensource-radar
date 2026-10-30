@@ -38,7 +38,7 @@
     
   </div>
 
-  <h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><p>下载官方 arm64 二进制：fabric_Darwin_arm64.tar.gz（27 MB），解压即用，无需 Docker</p></div><div class="step"><span class="num">2</span><p>首次运行会找 ~/.config/fabric，没有就自己建目录放 .env</p></div><div class="step"><span class="num">3</span><p>内置不含 pattern，需要另外准备 265 个 pattern 文件（官方仓库 data/patterns 目录）</p></div><div class="step"><span class="num">4</span><b>试跑</b><p>echo &quot;文本&quot; | fabric -p summarize --dry-run —— 只组装提示词，不发请求</p></div></div>
+  <h2 class="sec">我看到了什么</h2><ul class="evidence"><li>发行包里没有 pattern：二进制能跑，但 --listpatterns 提示 No patterns found</li><li>把仓库 data/patterns 下 344 个文件下下来后，识别出 265 个 pattern</li><li>echo 文本 | fabric -p summarize --dry-run 输出完整系统提示词（20 词摘要格式）</li></ul><p class="demo-note">全部是实测时的真实输出，不是转述</p><h2 class="sec">怎么用（我实测的步骤）</h2><div class="steps"><div class="step"><span class="num">1</span><p>下载官方 arm64 二进制：fabric_Darwin_arm64.tar.gz（27 MB），解压即用，无需 Docker</p></div><div class="step"><span class="num">2</span><p>首次运行会找 ~/.config/fabric，没有就自己建目录放 .env</p></div><div class="step"><span class="num">3</span><p>内置不含 pattern，需要另外准备 265 个 pattern 文件（官方仓库 data/patterns 目录）</p></div><div class="step"><span class="num">4</span><b>试跑</b><p>echo &quot;文本&quot; | fabric -p summarize --dry-run —— 只组装提示词，不发请求</p></div></div>
 
 <div class="gate" data-tier="member" data-open="0">
   <h3>完整安装手册 <span class="tag paid">会员</span></h3>
