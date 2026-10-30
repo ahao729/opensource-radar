@@ -217,6 +217,9 @@ body::before {
 .badge.forbidden { background: var(--bad-bg); color: var(--bad); border-color: color-mix(in srgb, var(--bad) 22%, transparent); }
 .badge.unknown { background: var(--unk-bg); color: var(--unk); border-color: color-mix(in srgb, var(--unk) 22%, transparent); }
 .badge.ghost { background: transparent; border-color: var(--line-2); color: var(--muted); }
+.badge.done { background: var(--ink); color: var(--bg); border-color: var(--ink); font-weight: 600; }
+.badge.part { background: var(--warn-bg); color: var(--warn); border-color: color-mix(in srgb, var(--warn) 25%, transparent); }
+
 .badge.lvl { background: var(--ink); color: var(--bg); border-color: var(--ink); font-weight: 600; }
 
 .dots { letter-spacing: 2px; color: var(--accent); font-size: 11px; }
