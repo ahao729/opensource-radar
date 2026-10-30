@@ -33,6 +33,44 @@
 
   applyTier();
 
+  // ── 命令复制按钮 ─────────────────────────────
+  document.querySelectorAll(".step code").forEach(function (code) {
+    var wrap = document.createElement("div");
+    wrap.className = "code-wrap";
+    code.parentNode.insertBefore(wrap, code);
+    wrap.appendChild(code);
+
+    var btn = document.createElement("button");
+    btn.className = "copy-btn";
+    btn.type = "button";
+    btn.textContent = "复制";
+    wrap.appendChild(btn);
+
+    btn.addEventListener("click", function () {
+      var text = code.textContent.trim();
+      function done(ok) {
+        btn.textContent = ok ? "已复制" : "复制失败";
+        btn.classList.toggle("ok", ok);
+        setTimeout(function () {
+          btn.textContent = "复制";
+          btn.classList.remove("ok");
+        }, 1600);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+        document.body.removeChild(ta);
+        done(ok);
+      }
+    });
+  });
+
   // ── 首页搜索与筛选 ─────────────────────────────
   var input = document.getElementById("q");
   if (!input) return;
