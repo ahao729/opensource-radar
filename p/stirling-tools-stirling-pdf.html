@@ -14,6 +14,13 @@
 <body data-tier="guest">
 <header class="top">
   <a class="brand" href="../index.html"><span class="dot"></span>开源雷达</a>
+  <nav class="nav">
+    <a href="../index.html">目录</a>
+    <a href="../start/">选型</a>
+    <a href="../rank/">榜单</a>
+    <a href="../by/license/" class="nav-wide">按条件</a>
+    <a href="../methodology/" class="nav-wide">口径</a>
+  </nav>
   
 </header>
 
@@ -43,7 +50,7 @@
 <div class="gate" data-tier="member" data-open="0">
   <h3>完整安装手册 <span class="tag paid">会员</span></h3>
   <div class="gate-body"><ul class="manual-list"><li>域名怎么绑、HTTPS 证书怎么配</li><li>备份：备份哪些目录、多久一次、怎么恢复</li><li>升级：换版本不丢数据的具体步骤</li><li>对外开放前必须先做的三件事（改默认密码、限制来源、开日志）</li><li>挂了怎么查：日志在哪、常见报错对照</li></ul></div>
-  <div class="gate-lock">🔒 会员可见</div>
+  <div class="gate-lock">🔒 会员可见 · ¥39/月</div>
 </div>
 
 <div class="gate" data-tier="follower" data-open="0">
@@ -55,7 +62,7 @@
 <div class="gate" data-tier="member" data-open="0">
   <h3>剩下的坑和调优 <span class="tag paid">会员</span></h3>
   <div class="gate-body"><p>3.x 默认开启登录鉴权：直接调接口返回 401，自用必须加 -e SECURITY_ENABLELOGIN=false · 官方 API 示例里文件字段写的是 files，实际必须是 fileInput；写错会返回 200 却给你一个 0 字节的空文件 · 实测常驻内存 1.04 GiB，官方说 1G 起步，2G 内存的小机器会很紧张 · 首次启动约 15 秒就能访问，但 docker ps 的健康状态还会显示 starting 一两分钟，别以为挂了</p></div>
-  <div class="gate-lock">🔒 会员可见</div>
+  <div class="gate-lock">🔒 会员可见 · ¥39/月</div>
 </div>
 
 <h2 class="sec">同类项目</h2><ul class="similar"><li><a href="../p/n8n-io-n8n.html">n8n</a><span class="badge limited">⚠️ 要注意</span><span class="dots">●●●○○</span></li><li><a href="../p/browser-use-browser-use.html">Browser Use</a><span class="badge ok">✅ 可商用</span><span class="dots">●●●●○</span></li><li><a href="../p/immich-app-immich.html">Immich</a><span class="badge forbidden">❌ 别商用</span><span class="dots">●●●○○</span></li></ul>
@@ -81,8 +88,7 @@
 <footer class="foot">
   <p>开源雷达 · 帮你判断一个开源东西能不能用、要不要钱、装起来有多难。</p>
   <p class="muted">
-    <a href="../methodology/">数据口径</a> ·
-    
+    <a href="../methodology/">数据口径</a>
   </p>
 </footer>
 <script src="../assets/app.js"></script>

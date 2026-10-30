@@ -98,6 +98,10 @@ body::before {
   background: radial-gradient(circle at 30% 30%, var(--accent-2), var(--accent));
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
+.nav { display: flex; align-items: center; gap: 16px; font-size: 13px; }
+.nav a { color: var(--muted); transition: color .15s; }
+.nav a:hover { color: var(--ink); }
+
 .tierbar { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
 .tierbar > span { margin-right: 4px; }
 .tier-btn {
@@ -570,6 +574,9 @@ h2.sec::before {
   .stats { gap: 20px; }
   .grid { grid-template-columns: 1fr; }
   .tierbar > span { display: none; }
+  .nav { gap: 12px; font-size: 12.5px; }
+  .nav-wide { display: none; }
+  .steps { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
