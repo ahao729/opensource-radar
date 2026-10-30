@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的工作台 · 开源雷达</title>
+<meta name="description" content="收藏的开源工具、部署进度和踩过的坑，存在你自己的浏览器里。">
+<meta property="og:title" content="我的工作台 · 开源雷达">
+<meta property="og:description" content="收藏的开源工具、部署进度和踩过的坑，存在你自己的浏览器里。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%234338ca'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-tier="guest">
+<header class="top">
+  <a class="brand" href="../index.html"><span class="dot"></span>开源雷达</a>
+  <nav class="nav">
+    <a href="../index.html">目录</a>
+    <a href="../start/">选型</a>
+    <a href="../rank/">榜单</a>
+    <a href="../service/">服务</a>
+    <a href="../me/" class="nav-me">我的<span id="me-badge" hidden></span></a>
+    <a href="../by/license/" class="nav-wide">按条件</a>
+    <a href="../methodology/" class="nav-wide">口径</a>
+  </nav>
+  
+</header>
+
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">← 目录</a><span class="sep">/</span><span class="cur">我的工作台</span></nav>
+
+  <section class="hero">
+    <p class="eyebrow">我的工作台</p>
+    <h1 class="display">你收藏的<em>都在这里</em></h1>
+    <p class="lede">收藏项目、标记装到哪一步、记住自己踩过的坑。
+      数据存在你自己的浏览器里——<b>不用注册，我们也不上传</b>。</p>
+  </section>
+
+  <div id="me-app">
+    <div class="me-empty" id="me-empty" hidden>
+      <b>还没有收藏任何东西。</b>
+      <p>在任意项目页点「收藏」，它就会出现在这里。收藏后可以标记进度、写下自己踩的坑。</p>
+      <a class="btn primary" href="../index.html">去目录逛逛</a>
+    </div>
+
+    <section class="me-block" id="me-list-block" hidden>
+      <h2 class="sec">我的清单</h2>
+      <p class="pb-lead" id="me-count"></p>
+      <div class="me-list" id="me-list"></div>
+    </section>
+
+    <section class="me-block">
+      <h2 class="sec">数据在哪</h2>
+      <div class="prose">
+        <p>全部存在这台设备的浏览器里（localStorage），关掉网页也不会丢，但<b>换设备就看不到</b>。</p>
+        <p>跨设备同步需要账号体系，正在做。在那之前，你可以导出成文件自己存着。</p>
+        <div class="me-actions">
+          <button class="btn ghost" id="me-export" type="button">导出 JSON</button>
+          <button class="btn ghost" id="me-clear" type="button">清空全部</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<script>window.RADAR_INDEX = {"n8n-io-n8n": {"n": "n8n", "u": "../p/n8n-io-n8n.html", "l": "limited", "d": 3, "v": 1, "s": 209029, "p": "2026-10-29"}, "firecrawl-firecrawl": {"n": "Firecrawl", "u": "../p/firecrawl-firecrawl.html", "l": "forbidden", "d": 3, "v": 0, "s": 196741, "p": "2026-10-29"}, "ollama-ollama": {"n": "Ollama", "u": "../p/ollama-ollama.html", "l": "ok", "d": 3, "v": 1, "s": 185246, "p": "2026-10-29"}, "automatic1111-stable-diffusion-webui": {"n": "SD WebUI", "u": "../p/automatic1111-stable-diffusion-webui.html", "l": "forbidden", "d": 4, "v": 0, "s": 165179, "p": "2026-03-02"}, "langgenius-dify": {"n": "Dify", "u": "../p/langgenius-dify.html", "l": "limited", "d": 3, "v": 0, "s": 159922, "p": "2026-10-29"}, "open-webui-open-webui": {"n": "Open WebUI", "u": "../p/open-webui-open-webui.html", "l": "limited", "d": 2, "v": 1, "s": 157168, "p": "2026-10-29"}, "langchain-ai-langchain": {"n": "LangChain", "u": "../p/langchain-ai-langchain.html", "l": "ok", "d": 5, "v": 0, "s": 148671, "p": "2026-10-29"}, "harry0703-moneyprinterturbo": {"n": "MoneyPrinterTurbo", "u": "../p/harry0703-moneyprinterturbo.html", "l": "ok", "d": 3, "v": 0, "s": 136301, "p": "2026-10-29"}, "excalidraw-excalidraw": {"n": "Excalidraw", "u": "../p/excalidraw-excalidraw.html", "l": "ok", "d": 1, "v": 0, "s": 134803, "p": "2026-10-29"}, "browser-use-browser-use": {"n": "Browser Use", "u": "../p/browser-use-browser-use.html", "l": "ok", "d": 4, "v": 0, "s": 119485, "p": "2026-10-27"}, "immich-app-immich": {"n": "Immich", "u": "../p/immich-app-immich.html", "l": "forbidden", "d": 3, "v": 0, "s": 117610, "p": "2026-10-29"}, "openai-whisper": {"n": "Whisper", "u": "../p/openai-whisper.html", "l": "ok", "d": 3, "v": 0, "s": 111544, "p": "2026-10-31"}, "vllm-project-vllm": {"n": "vLLM", "u": "../p/vllm-project-vllm.html", "l": "ok", "d": 5, "v": 0, "s": 95864, "p": "2026-10-29"}, "stirling-tools-stirling-pdf": {"n": "Stirling PDF", "u": "../p/stirling-tools-stirling-pdf.html", "l": "ok", "d": 2, "v": 1, "s": 95357, "p": "2026-10-29"}, "infiniflow-ragflow": {"n": "RAGFlow", "u": "../p/infiniflow-ragflow.html", "l": "ok", "d": 4, "v": 0, "s": 93097, "p": "2026-10-29"}, "louislam-uptime-kuma": {"n": "Uptime Kuma", "u": "../p/louislam-uptime-kuma.html", "l": "ok", "d": 1, "v": 0, "s": 93072, "p": "2026-10-29"}, "coder-code-server": {"n": "code-server", "u": "../p/coder-code-server.html", "l": "ok", "d": 3, "v": 0, "s": 79725, "p": "2026-10-29"}, "grafana-grafana": {"n": "Grafana", "u": "../p/grafana-grafana.html", "l": "forbidden", "d": 3, "v": 0, "s": 77582, "p": "2026-10-29"}, "apache-superset": {"n": "Superset", "u": "../p/apache-superset.html", "l": "ok", "d": 4, "v": 0, "s": 75364, "p": "2026-10-29"}, "toeverything-affine": {"n": "AFFiNE", "u": "../p/toeverything-affine.html", "l": "limited", "d": 3, "v": 0, "s": 73967, "p": "2026-10-27"}, "nocodb-nocodb": {"n": "NocoDB", "u": "../p/nocodb-nocodb.html", "l": "unknown", "d": 2, "v": 0, "s": 65380, "p": "2026-10-29"}, "penpot-penpot": {"n": "Penpot", "u": "../p/penpot-penpot.html", "l": "ok", "d": 4, "v": 0, "s": 61843, "p": "2026-10-29"}, "go-gitea-gitea": {"n": "Gitea", "u": "../p/go-gitea-gitea.html", "l": "ok", "d": 2, "v": 1, "s": 58768, "p": "2026-10-29"}, "laurent22-joplin": {"n": "Joplin", "u": "../p/laurent22-joplin.html", "l": "forbidden", "d": 1, "v": 0, "s": 56932, "p": "2026-10-29"}, "flowiseai-flowise": {"n": "Flowise", "u": "../p/flowiseai-flowise.html", "l": "limited", "d": 3, "v": 0, "s": 55536, "p": "2026-08-13"}, "clickhouse-clickhouse": {"n": "ClickHouse", "u": "../p/clickhouse-clickhouse.html", "l": "ok", "d": 5, "v": 0, "s": 50666, "p": "2026-10-29"}, "mudler-localai": {"n": "LocalAI", "u": "../p/mudler-localai.html", "l": "ok", "d": 4, "v": 0, "s": 50058, "p": "2026-10-29"}, "metabase-metabase": {"n": "Metabase", "u": "../p/metabase-metabase.html", "l": "forbidden", "d": 2, "v": 0, "s": 49976, "p": "2026-10-29"}, "danielmiessler-fabric": {"n": "Fabric", "u": "../p/danielmiessler-fabric.html", "l": "ok", "d": 3, "v": 1, "s": 44491, "p": "2026-10-29"}, "appsmithorg-appsmith": {"n": "Appsmith", "u": "../p/appsmithorg-appsmith.html", "l": "ok", "d": 3, "v": 0, "s": 41136, "p": "2026-10-29"}, "outline-outline": {"n": "Outline", "u": "../p/outline-outline.html", "l": "limited", "d": 2, "v": 0, "s": 41109, "p": "2026-10-29"}, "posthog-posthog": {"n": "PostHog", "u": "../p/posthog-posthog.html", "l": "limited", "d": 3, "v": 0, "s": 40514, "p": "2026-10-29"}, "photoprism-photoprism": {"n": "PhotoPrism", "u": "../p/photoprism-photoprism.html", "l": "forbidden", "d": 3, "v": 0, "s": 40371, "p": "2026-10-29"}, "halo-dev-halo": {"n": "Halo", "u": "../p/halo-dev-halo.html", "l": "limited", "d": 2, "v": 0, "s": 40079, "p": "2026-10-27"}, "portainer-portainer": {"n": "Portainer", "u": "../p/portainer-portainer.html", "l": "ok", "d": 2, "v": 0, "s": 38748, "p": "2026-10-27"}, "chatwoot-chatwoot": {"n": "Chatwoot", "u": "../p/chatwoot-chatwoot.html", "l": "limited", "d": 3, "v": 0, "s": 38579, "p": "2026-10-29"}, "1panel-dev-1panel": {"n": "1Panel", "u": "../p/1panel-dev-1panel.html", "l": "limited", "d": 2, "v": 0, "s": 37310, "p": "2026-10-29"}, "songquanpeng-one-api": {"n": "One API", "u": "../p/songquanpeng-one-api.html", "l": "ok", "d": 2, "v": 0, "s": 37275, "p": "2026-01-09"}, "medusajs-medusa": {"n": "Medusa", "u": "../p/medusajs-medusa.html", "l": "limited", "d": 5, "v": 0, "s": 37004, "p": "2026-10-29"}, "plausible-analytics": {"n": "Plausible", "u": "../p/plausible-analytics.html", "l": "forbidden", "d": 2, "v": 0, "s": 29718, "p": "2026-10-29"}, "systran-faster-whisper": {"n": "faster-whisper", "u": "../p/systran-faster-whisper.html", "l": "ok", "d": 4, "v": 0, "s": 26301, "p": "2026-10-25"}, "firefly-iii-firefly-iii": {"n": "Firefly III", "u": "../p/firefly-iii-firefly-iii.html", "l": "forbidden", "d": 2, "v": 0, "s": 25034, "p": "2026-10-29"}, "knadh-listmonk": {"n": "listmonk", "u": "../p/knadh-listmonk.html", "l": "forbidden", "d": 2, "v": 0, "s": 24038, "p": "2026-10-29"}, "saleor-saleor": {"n": "Saleor", "u": "../p/saleor-saleor.html", "l": "ok", "d": 5, "v": 0, "s": 23488, "p": "2026-10-29"}, "wechaty-wechaty": {"n": "Wechaty", "u": "../p/wechaty-wechaty.html", "l": "ok", "d": 4, "v": 0, "s": 23436, "p": "2025-12-21"}, "rasahq-rasa": {"n": "Rasa", "u": "../p/rasahq-rasa.html", "l": "ok", "d": 5, "v": 0, "s": 21363, "p": "2026-07-24"}, "jianchang512-pyvideotrans": {"n": "pyVideoTrans", "u": "../p/jianchang512-pyvideotrans.html", "l": "limited", "d": 4, "v": 0, "s": 19593, "p": "2026-10-26"}, "moodle-moodle": {"n": "Moodle", "u": "../p/moodle-moodle.html", "l": "limited", "d": 3, "v": 0, "s": 7561, "p": "2026-10-21"}, "oppia-oppia": {"n": "Oppia", "u": "../p/oppia-oppia.html", "l": "ok", "d": 4, "v": 0, "s": 6951, "p": "2026-10-29"}, "openemr-openemr": {"n": "OpenEMR", "u": "../p/openemr-openemr.html", "l": "limited", "d": 4, "v": 0, "s": 5558, "p": "2026-10-29"}, "orangehrm-orangehrm": {"n": "OrangeHRM", "u": "../p/orangehrm-orangehrm.html", "l": "limited", "d": 3, "v": 0, "s": 1158, "p": "2026-06-28"}, "skill-anthropics-skills": {"n": "Agent Skills（官方）", "u": "../s/skill-anthropics-skills.html", "l": "unknown", "d": 1, "v": 0, "s": 184775, "p": "2026-10-28"}, "skill-addyosmani-agent-skills": {"n": "Agent Skills（Osmani）", "u": "../s/skill-addyosmani-agent-skills.html", "l": "ok", "d": 1, "v": 0, "s": 111722, "p": "2026-10-29"}, "skill-leonxlnx-taste-skill": {"n": "Taste Skill", "u": "../s/skill-leonxlnx-taste-skill.html", "l": "ok", "d": 1, "v": 0, "s": 105439, "p": "2026-10-29"}, "skill-coreyhaines31-marketingskills": {"n": "Marketing Skills", "u": "../s/skill-coreyhaines31-marketingskills.html", "l": "ok", "d": 1, "v": 0, "s": 57308, "p": "2026-10-29"}, "skill-k-dense-ai-scientific-agent-skills": {"n": "Scientific Agent Skills", "u": "../s/skill-k-dense-ai-scientific-agent-skills.html", "l": "ok", "d": 2, "v": 0, "s": 55264, "p": "2026-10-26"}, "skill-orchestra-research-ai-research-skills": {"n": "AI-Research-SKILLs", "u": "../s/skill-orchestra-research-ai-research-skills.html", "l": "ok", "d": 2, "v": 0, "s": 14104, "p": "2026-10-11"}, "skill-tech-leads-club-agent-skills": {"n": "Agent Skills Registry", "u": "../s/skill-tech-leads-club-agent-skills.html", "l": "unknown", "d": 2, "v": 0, "s": 7115, "p": "2026-10-27"}, "skill-bergside-awesome-design-skills": {"n": "Design Skills 清单", "u": "../s/skill-bergside-awesome-design-skills.html", "l": "ok", "d": 1, "v": 0, "s": 3403, "p": "2026-06-28"}, "skill-supabase-agent-skills": {"n": "Supabase Agent Skills", "u": "../s/skill-supabase-agent-skills.html", "l": "ok", "d": 1, "v": 0, "s": 2953, "p": "2026-10-02"}, "skill-runkids-skillshare": {"n": "Skillshare", "u": "../s/skill-runkids-skillshare.html", "l": "ok", "d": 2, "v": 0, "s": 2862, "p": "2026-10-29"}};</script>
+<script src="../assets/me.js"></script>
+
+<footer class="foot">
+  <p>开源雷达 · 帮你判断一个开源东西能不能用、要不要钱、装起来有多难。</p>
+  <p class="muted">
+    <a href="../methodology/">数据口径</a>
+  </p>
+</footer>
+<script src="../assets/app.js"></script>
+</body></html>

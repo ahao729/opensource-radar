@@ -29,9 +29,85 @@
     tier = b.dataset.tierBtn;
     localStorage.setItem(KEY, tier);
     applyTier();
+
+  // ── 收藏（存本机） ─────────────────────────
+  var FAV_KEY = "radar.me";
+  function favLoad() {
+    try { return JSON.parse(localStorage.getItem(FAV_KEY) || "{}"); } catch (e) { return {}; }
+  }
+  function favSave(d) { localStorage.setItem(FAV_KEY, JSON.stringify(d)); }
+  function favCount() {
+    var b = document.getElementById("me-badge");
+    if (!b) return;
+    var n = Object.keys(favLoad()).length;
+    b.textContent = n ? String(n) : "";
+    b.hidden = !n;
+  }
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-fav]");
+    if (!btn) return;
+    var slug = btn.dataset.fav;
+    var d = favLoad();
+    if (d[slug]) {
+      delete d[slug];
+      btn.textContent = "☆ 收藏";
+      btn.classList.remove("on");
+    } else {
+      d[slug] = { ts: Date.now(), status: "想装", name: btn.dataset.name || slug };
+      btn.textContent = "★ 已收藏";
+      btn.classList.add("on");
+    }
+    favSave(d);
+    favCount();
+  });
+  favCount();
+  document.querySelectorAll("[data-fav]").forEach(function (b) {
+    if (favLoad()[b.dataset.fav]) {
+      b.textContent = "★ 已收藏";
+      b.classList.add("on");
+    }
+  });
   });
 
   applyTier();
+
+  // ── 收藏（存本机） ─────────────────────────
+  var FAV_KEY = "radar.me";
+  function favLoad() {
+    try { return JSON.parse(localStorage.getItem(FAV_KEY) || "{}"); } catch (e) { return {}; }
+  }
+  function favSave(d) { localStorage.setItem(FAV_KEY, JSON.stringify(d)); }
+  function favCount() {
+    var b = document.getElementById("me-badge");
+    if (!b) return;
+    var n = Object.keys(favLoad()).length;
+    b.textContent = n ? String(n) : "";
+    b.hidden = !n;
+  }
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-fav]");
+    if (!btn) return;
+    var slug = btn.dataset.fav;
+    var d = favLoad();
+    if (d[slug]) {
+      delete d[slug];
+      btn.textContent = "☆ 收藏";
+      btn.classList.remove("on");
+    } else {
+      d[slug] = { ts: Date.now(), status: "想装", name: btn.dataset.name || slug };
+      btn.textContent = "★ 已收藏";
+      btn.classList.add("on");
+    }
+    favSave(d);
+    favCount();
+  });
+  favCount();
+  document.querySelectorAll("[data-fav]").forEach(function (b) {
+    if (favLoad()[b.dataset.fav]) {
+      b.textContent = "★ 已收藏";
+      b.classList.add("on");
+    }
+  });
 
   // ── 命令复制按钮 ─────────────────────────────
   document.querySelectorAll(".step code").forEach(function (code) {

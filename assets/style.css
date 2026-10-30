@@ -232,6 +232,47 @@ body::before {
 .dots { letter-spacing: 2px; color: var(--accent); font-size: 11px; }
 
 /* ── 使用说明条 ───────────────────────── */
+/* ── 我的工作台 ─────────────────────── */
+.nav-me { position: relative; }
+#me-badge {
+  display: inline-block; margin-left: 4px; padding: 0 5px;
+  border-radius: 999px; background: var(--accent); color: #fff;
+  font-size: 10px; line-height: 15px; vertical-align: 1px;
+}
+.fav-btn.on { border-color: var(--accent); color: var(--accent); }
+
+.me-block { margin-top: 40px; }
+.me-empty {
+  margin-top: 28px; padding: 32px 24px; text-align: center;
+  background: var(--card); border: 1px dashed var(--line-2); border-radius: var(--r-lg);
+}
+.me-empty b { display: block; font-size: 17px; margin-bottom: 6px; }
+.me-empty p { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+.me-list { display: grid; gap: 12px; }
+.me-item {
+  position: relative; padding: 16px 18px;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg);
+}
+.me-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.me-head b { font-size: 16px; }
+.me-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.me-row .chip { padding: 4px 11px; font-size: 12px; }
+.me-note {
+  width: 100%; box-sizing: border-box; resize: vertical;
+  padding: 9px 12px; font: inherit; font-size: 13.5px; line-height: 1.6;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: var(--bg-soft); color: var(--ink); outline: none;
+}
+.me-note:focus { border-color: var(--accent); background: var(--card); }
+.me-del {
+  position: absolute; top: 14px; right: 14px;
+  border: 0; background: none; color: var(--muted);
+  font-size: 12px; cursor: pointer; padding: 4px;
+}
+.me-del:hover { color: var(--bad); }
+.me-actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+
 /* ── 数据概览 ───────────────────────── */
 .overview {
   display: grid; gap: 12px; margin: 44px 0 0; align-items: start;
