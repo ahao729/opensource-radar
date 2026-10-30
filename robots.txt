@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://ahao729.github.io/opensource-radar/sitemap.xml
